@@ -21,7 +21,11 @@
     "createModuleToZero": "ts-node-dev src/modules/createToZero.ts",
     "findByCourse": "ts-node-dev src/search/findByCourse.ts",
     "findByRelation": "ts-node-dev src/search/findByRelation.ts",
-    "deleteData": "ts-node-dev src/delete/delete.ts"
+    "deleteData": "ts-node-dev src/delete/delete.ts",
+    "filterStartWith": "ts-node-dev src/filter/filterStartWith.ts",
+    "filterOr": "ts-node-dev src/filter/filterOr.ts",
+    "pagination": "ts-node-dev src/pagination/pagination.ts",
+    "queryRaw": "ts-node-dev src/queryRaw/queryRaw.ts"
   },
   "devDependencies": {
     "prisma": "^4.1.1",
