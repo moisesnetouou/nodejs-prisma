@@ -10,7 +10,54 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-//1º projeto
+//1º projeto 
+// model Courses {
+//   id            String   @id @default(uuid())
+//   name          String   @unique
+//   description   String?
+//   duration      Int
+//   created_at    DateTime @default(now())
+//   teacher       Teachers @relation(fields: [fk_id_teacher], references: [id])
+//   fk_id_teacher String   @unique
+
+//   @@map("courses")
+// }
+
+// model Teachers {
+//   id     String   @id @default(uuid())
+//   name   String   @unique
+//   course Courses?
+
+//   @@map("teachers")
+// }
+
+// model Modules {
+//   id          String   @id @default(uuid())
+//   name        String   @unique
+//   description String
+//   created_at  DateTime @default(now())
+
+//   @@map("modules")
+// }
+
+//3º projeto
+model Authors {
+  id    String  @id @default(uuid())
+  name  String  @unique
+  books Books[]
+
+  @@map("authors")
+}
+
+model Books {
+  id        String  @id @default(uuid())
+  name      String  @unique
+  author_id String
+  author    Authors @relation(fields: [author_id], references: [id])
+
+  @@map("books")
+}
+
 model Courses {
   id            String   @id @default(uuid())
   name          String   @unique
@@ -19,6 +66,8 @@ model Courses {
   created_at    DateTime @default(now())
   teacher       Teachers @relation(fields: [fk_id_teacher], references: [id])
   fk_id_teacher String   @unique
+
+  modules CoursesModules[]
 
   @@map("courses")
 }
@@ -37,23 +86,18 @@ model Modules {
   description String
   created_at  DateTime @default(now())
 
+  courses CoursesModules[]
+
   @@map("modules")
 }
 
-//2º projeto
-model Authors {
-  id    String  @id @default(uuid())
-  name  String  @unique
-  books Books[]
+model CoursesModules {
+  id           String   @id @default(uuid())
+  course       Courses  @relation(fields: [fk_id_course], references: [id])
+  fk_id_course String
+  module       Modules  @relation(fields: [fk_id_module], references: [id])
+  fk_id_module String
+  created_at   DateTime @default(now())
 
-  @@map("authors")
-}
-
-model Books {
-  id        String  @id @default(uuid())
-  name      String  @unique
-  author_id String
-  author    Authors @relation(fields: [author_id], references: [id])
-
-  @@map("books")
+  @@map("courses_modules")
 }

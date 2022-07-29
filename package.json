@@ -15,7 +15,13 @@
     "findTeacherRelation": "ts-node-dev src/teachers/findRelation.ts",
     "createAuthor": "ts-node-dev src/authors/create.ts",
     "createAuthorMany": "ts-node-dev src/authors/createMany.ts",
-    "createBook": "ts-node-dev src/books/create.ts"
+    "createBook": "ts-node-dev src/books/create.ts",
+    "createModule": "ts-node-dev src/modules/create.ts",
+    "createModuleManyToMany": "ts-node-dev src/modules/createManyToMany.ts",
+    "createModuleToZero": "ts-node-dev src/modules/createToZero.ts",
+    "findByCourse": "ts-node-dev src/search/findByCourse.ts",
+    "findByRelation": "ts-node-dev src/search/findByRelation.ts",
+    "deleteData": "ts-node-dev src/delete/delete.ts"
   },
   "devDependencies": {
     "prisma": "^4.1.1",
