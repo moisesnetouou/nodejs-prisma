@@ -12,7 +12,10 @@
     "createCourseTeacherNonExist": "ts-node-dev src/courses/create_non_exist_teacher.ts",
     "createCourseFkTeacher": "ts-node-dev src/courses/create_fk_teacher.ts",
     "createTeacher": "ts-node-dev src/teachers/create.ts",
-    "findTeacherRelation": "ts-node-dev src/teachers/findRelation.ts"
+    "findTeacherRelation": "ts-node-dev src/teachers/findRelation.ts",
+    "createAuthor": "ts-node-dev src/authors/create.ts",
+    "createAuthorMany": "ts-node-dev src/authors/createMany.ts",
+    "createBook": "ts-node-dev src/books/create.ts"
   },
   "devDependencies": {
     "prisma": "^4.1.1",

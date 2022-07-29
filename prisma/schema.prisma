@@ -10,6 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+//1º projeto
 model Courses {
   id            String   @id @default(uuid())
   name          String   @unique
@@ -37,4 +38,22 @@ model Modules {
   created_at  DateTime @default(now())
 
   @@map("modules")
+}
+
+//2º projeto
+model Authors {
+  id    String  @id @default(uuid())
+  name  String  @unique
+  books Books[]
+
+  @@map("authors")
+}
+
+model Books {
+  id        String  @id @default(uuid())
+  name      String  @unique
+  author_id String
+  author    Authors @relation(fields: [author_id], references: [id])
+
+  @@map("books")
 }
